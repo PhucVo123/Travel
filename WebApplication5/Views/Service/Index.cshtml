@@ -1,0 +1,72 @@
+﻿@*52000854 - Võ Huy Phúc*@
+
+@{
+    ViewBag.Title = Model.nameCategory;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Packages Start -->
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">@Model.nameCategory</h6>
+            <h1>Pefect Our Service</h1>
+        </div>
+        <!-- Booking Start -->
+        <div class="bg-light shadow" style="padding: 30px;margin-bottom: 40px">
+            <div class="row align-items-center" style="min-height: 60px;">
+                <form action="/tim-kiem" method="get">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb-3 mb-md-12">
+                                    <input type="text" class="form-control px-4" name="keyword" id="txtKeyword" placeholder="Thành phố, khách sạn, điểm đến" style="height: 47px;"/>
+                                    @*<select class="custom-select px-4" style="height: 47px;">
+                                        <option disabled selected value="">Thành phố, khách sạn, điểm đến</option>
+                                        <option value="1">Đà Nẵng</option>
+                                        <option value="2">Đà Lạt</option>
+                                        <option value="3">Vũng Tàu</option>
+                                        <option value="4">Hà Nội</option>
+                                        <option value="5">Vịnh Hạ Long</option>
+                                        <option value="3">Phú Quốc</option>
+                                    </select>*@
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3 mb-md-0">
+                                    <div class="date" id="date1" data-target-input="nearest">
+                                        <input type="text" name="date_checkin" class="form-control p-4 datetimepicker-input" placeholder="Ngày khởi hành" data-target="#date1" data-toggle="datetimepicker"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3 mb-md-0">
+                                    <div class="date" id="date2" data-target-input="nearest">
+                                        <input type="text" name="date_checkout" class="form-control p-4 datetimepicker-input" placeholder="Ngày trả phòng" data-target="#date2" data-toggle="datetimepicker" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3 mb-md-0">
+                                    <select class="custom-select px-4" style="height: 47px;" name="numofpeople">
+                                        <option selected>Số lượng người</option>
+                                        <option value="2">2 người</option>
+                                        <option value="3">3 người</option>
+                                        <option value="4">4 người</option>
+                                        <option value="4+">Trên 4 người</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -2px;">Tìm</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Booking End -->
+        @Html.Action("getProduct", "Home", new { meta = Model.meta })
+    </div>
+</div>
+<!-- Packages End -->

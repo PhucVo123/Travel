@@ -1,0 +1,49 @@
+﻿@model List<WebApplication5.Models.Product>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="heading mt-3" style="background-color: #0194F3; border: 1px solid inherit">
+    <h3 class="p-3 text-white">Kết quả tìm kiếm phù hợp theo từ khóa: </h3>
+</div>
+@if (Model.Count > 0)
+{
+    <div class="row mt-5">
+        @foreach (var i in Model)
+        {
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="package-item bg-white mb-2">
+                    <a href="/@ViewBag.meta/@i.Category.meta/@i.meta/@i.id"><img class="img-fluid" src="~/Images/@i.img" alt="" style="height: 248px; width:auto"></a>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>@i.position</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>@i.dateStay</small>
+                            <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>@i.numberOfCustomer</small>
+                        </div>
+                        @if (i.Category.meta != "tour-du-lich")
+                        {
+                            <a class="h5 text-decoration-none font-weight-bold" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1;  line-clamp: 1; -webkit-box-orient: vertical; " href="">@i.namePackage</a>
+
+                        }
+                        else
+                        {
+                            <a class="h5 text-decoration-none font-weight-bold" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2;  line-clamp: 2; -webkit-box-orient: vertical; " href="">@i.namePackage</a>
+                        }
+
+                        <div class="border-top mt-4 pt-4">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>@i.star</h6>
+                                <h5 class="m-0 font-weight-bold">@i.price</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div>Không có bản ghi nào.</div>
+}

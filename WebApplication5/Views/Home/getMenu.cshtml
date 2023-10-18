@@ -1,0 +1,19 @@
+﻿@model IEnumerable<WebApplication5.Models.Menu>
+
+<div class="navbar-nav ml-auto py-0">
+    @foreach (var i in Model)
+    {
+        if (i.meta.Equals("trang-chu"))
+        {
+            <a href="/@i.meta" class="nav-item nav-link active">@i.NameItem</a>
+        }
+        else
+        {
+            <a href="/@i.meta" class="nav-item nav-link">@i.NameItem</a>
+        }
+
+    }
+</div>
+
+
+

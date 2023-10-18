@@ -1,0 +1,20 @@
+﻿@model IEnumerable<WebApplication5.Models.News>
+
+@foreach (var i in Model)
+{
+    <div class="pb-3">
+        <div class="blog-item">
+                <div class="position-relative">
+                    <img class="img-fluid w-100" src="~/Images/@i.imgNews" alt="" style="height: 240px; width:auto">
+                </div>
+                <div class="bg-white p-4">
+                    <div class="d-flex mb-2">
+                        <a class="text-primary text-uppercase text-decoration-none" href="">@i.nameOfAdmin</a>
+                        <span class="text-primary px-2">|</span>
+                        <a class="text-primary text-uppercase text-decoration-none" href="">@i.nameOfLink</a>
+                    </div>
+                    <a class="h5 m-0 text-decoration-none" href="@i.linkNews" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2;  line-clamp: 2; -webkit-box-orient: vertical; ">@i.nameNews</a>
+                </div>
+        </div>
+    </div>
+}

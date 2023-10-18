@@ -1,0 +1,26 @@
+﻿@*@model WebApplication5.Models.detailHotel
+@Styles.Render("~/Content/css/detail.css")
+
+<div class="col-md-7">
+    <div class="img">
+        <img class="img-fluid" src="~/Images/@Model.img_hotel_1" alt="" />
+    </div>
+    <div class="boxTour" id="flag2">
+        <div class="title"><span class="fa-info-circle">Miêu tả chi tiết</span></div>
+        <div class="content">
+            <div class="listDay">
+                <div class="day active">
+                    <div class="titDay"><strong>Tận hưởng dịch vụ đỉnh cao, đẳng cấp thế giới tại Muong Thanh Luxury Da Nang Hotel</strong></div>
+                    <div class="arrow-up"></div>
+                    <div class="contDay" style="display: block;">
+                        <div class="the-content desc">
+                            <p></p><div style="text-align: justify;">
+                                @Model.descDetailHotel
+                            </div><p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@

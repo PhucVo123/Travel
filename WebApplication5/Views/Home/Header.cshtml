@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Header";
+}
+
+<!-- Topbar Start -->
+<header class="container-fluid bg-light pt-3 d-none d-lg-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                    <p class="text-body px-3">|</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</p>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    @if (Session["Numberphone"] == null)
+                    {
+                        <a href="/dang-ky" class="nav-item nav-link mb-3">Đăng ký</a> <span class="mb-3" style="color: rgb(1,148,243)">|</span>
+                        <a href="/dang-nhap" class="nav-item nav-link mb-3">Đăng nhập</a>
+                    }
+                    <a class="text-primary px-3 mb-3" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-primary px-3 mb-3" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-primary px-3 mb-3" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    @if (Session["Numberphone"] != null)
+                    {
+                        <p class="text-primary px-3">Xin chào, khách hàng của PPS</p> <span class="mb-3" style = "color: rgb(1,148,243)" >|</span >
+                        <a href="@Url.Action("Logout","Login")"  class="btn btn-link pl-3 mb-3" type="submit">Log out</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Topbar End -->

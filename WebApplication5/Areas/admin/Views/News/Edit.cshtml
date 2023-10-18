@@ -1,0 +1,107 @@
+﻿@model WebApplication5.Models.News
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal pt-4">
+        <h4>Tin tức</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.Label("Tiêu đề tin tức", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nameNews, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nameNews, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group pt-4">
+            @Html.Label("Nội dung", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.content, new { @class = "form-control", @rows = 5})
+                @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group pt-4">
+            @Html.Label("Tên Admin đăng bài", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nameOfAdmin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nameOfAdmin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group pt-4">
+            @Html.Label("Tên bài báo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nameOfLink, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nameOfLink, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group pt-4">
+            @Html.Label("Hình tin tức", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                <input type="file" name="img" id="img" accept=".jpg,.png,.jpeg,.gif,.bmp"
+            </div>
+            <div class="col-md-4">
+                <img src="~/Images/@Model.imgNews" width="100px" />
+            </div>
+        </div>
+
+        <div class="form-group pt-4">
+            @Html.Label("Ngày viết", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dateRelease, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.dateRelease, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group pt-4">
+            @Html.LabelFor(model => model.meta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.meta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.meta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group pt-4">
+            @Html.Label("Hiển thị", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @{
+                        bool hide = (Model.hide.GetValueOrDefault(true) ? true : false);
+                    }
+                    @Html.CheckBoxFor(model => hide)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group pt-4">
+            @Html.Label("Vị trí", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.order, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.order, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

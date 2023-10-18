@@ -1,0 +1,46 @@
+﻿@model WebApplication5.Models.Detail
+@Styles.Render("~/Content/css/detail.css")
+
+
+<div class="col-md-7">
+    <div class="img">
+        <img class="img-fluid" src="~/Images/@Model.Product.img" alt="" />
+    </div>
+    <div class="boxTour" id="flag2">
+        <div class="title"><span class="fa-info-circle">Miêu tả chi tiết</span></div>
+        <div class="content">
+            <div class="listDay">
+                <div class="day active">
+                    <div class="the-content desc">
+                        <p></p><div style="text-align: justify;" id="mycontent">
+                            @if (Model.Product.Category.meta == "khach-san-cho-o")
+                            {
+                                @Model.descDetail
+                            }
+                            else
+                            {
+                                @Model.scheduleDetail
+                            }
+                        </div><p></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#mycontent').each(function () {
+            var $this = $(this);
+            var t = $this.text();
+            $this.html(t.replace('&lt', '<').replace('&gt', '>'));
+        });
+        $("img").addClass("img-fluid")
+    })
+
+</script>
+
+

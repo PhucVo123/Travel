@@ -1,0 +1,58 @@
+﻿@model WebApplication5.Models.detailTour
+@Styles.Render("~/Content/css/detail_tour.css")
+<div class="col-md-7">
+    <div class="img">
+        <img class="img-fluid"  src="~/Images/@Model.img_schedule_date_1" alt="Du lịch Phú Quốc - Hà Nội" style="width:650px" />
+    </div>
+    <div class="boxTour" id="flag2">
+        <div class="title"><span class="fa-map-o">Miêu tả chi tiết</span></div>
+        <div class="content">
+            <div class="listDay">
+                <div class="day active">
+                    @for (int i = 1; i <= Int16.Parse(Model.schedule); i++)
+                    {
+                        <div class="titDay"><span>NGÀY @i:</span></div>
+                        <div class="arrow-up"></div>
+                        <div class="contDay" style="display: block;">
+                            <div class="the-content desc">
+                                <p></p><div style="text-align: justify;">
+                                    @if (i == 1)
+                                    {
+                                        @Model.schedule_detail_1
+                                    }
+                                    else if (i == 2)
+                                    {
+                                        @Model.schedule_detail_2
+                                    }
+                                    else if (i == 3)
+                                    {
+                                        @Model.schedule_detail_2
+                                    }
+                                    else
+                                    {
+                                        @Model.schedule_detail_4
+                                    }
+                                </div>
+                                <div style="text-align: center; margin-top: 20px;">
+                                    <img alt="" src="~/Images/@Model.img_schedule_date_1" style="width: 500px; height: 389px;"><br>
+                                    <em>Hồ tiêu Phú Quốc</em><br>
+                                    &nbsp;
+                                </div>-->
+                                <div style="text-align: justify;">
+                                        <strong>Trưa:&nbsp;</strong>Dùng cơm trưa.<br>
+                                        Khám phá<strong> </strong>thành phố không ngủ<strong> Grand World Phú Quốc – </strong>checkin dòng sông<strong> Venice</strong><br>
+                                        <strong>(Chi phí tự túc, không bao gồm: vé tham quan) </strong><br>
+                                        Khám Phá <strong>Phú Quốc UnitedCenter - Grandword </strong>,Trung tâm mới sầm uất và đa tiện tích của Phú Quốc với hệ sinh thái dịch vụ trọn vẹn từ dân sinh đến giải trí, nay được hoàn thiện ngoạn mục bằng sự ra mắt của Grand World, Thiên đường giải trí - mua sắm - lễ hội độc đáo và đa dạng bậc nhất Đông Nam Á với chuỗi trải nghiệm xuyên suốt 24h.<br>
+                                        <strong>Quý Khách được Checkin sống ảo Miễn phí tại đây . </strong><br>
+                                        <strong>SIÊU QUẦN THỂ NGHỈ DƯỠNG - KHÁM PHÁ - MUA SẮM - GIẢI TRÍ KHÔNG NGỦ HÀNG ĐẦU KHU VỰC - PHÚ QUỐC UNITED CENTER</strong><br>
+                                        <strong>Tối:&nbsp;</strong>Dùng cơm tối.<br>
+                                        Nghỉ đêm tại Phú Quốc.
+                                    </div><p></p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

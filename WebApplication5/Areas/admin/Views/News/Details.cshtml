@@ -1,0 +1,107 @@
+﻿@model WebApplication5.Models.News
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>News</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nameNews)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameNews)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nameOfAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameOfAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nameOfLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameOfLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.linkNews)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.linkNews)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imgNews)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imgNews)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateRelease)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateRelease)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.meta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.meta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datebegin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datebegin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

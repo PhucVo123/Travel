@@ -1,0 +1,54 @@
+﻿@model List<WebApplication5.Models.CartItem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter
+{
+    <script src="~/Content/js/cartController.js"></script>
+   }
+<div class="content mt-5">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <td>Mã Tour</td>
+                        <td>Tên Tour</td>
+                        <td>Ảnh Tour</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                                <td>@item.product.id</td>
+                                <td>@item.product.namePackage</td>
+                                <td><img src="~/Images/@item.product.img" width="100" /></td>
+                                <td><input type="text" class="txtQuantity" data-id="@item.product.id" value="@item.quantity" /></td>
+                                <td>@item.product.price</td>
+                                <td>@item.quantity</td>
+                                <td><a href="#" data-id="@item.product.id" class="btn-delete">Delete</a></td>
+                            
+                        </tr>
+                    }
+                    </tbody>
+            </table>
+            <button id="btnContinue" class="btn btn-secondary">Tiếp tục mua hàng</button>
+            <button id="btnUpdate" class="btn btn-primary">Cập nhật giỏ hàng</button>
+            <button id="btnDeleteAll" class="btn btn-danger">Xóa giỏ hàng</button>
+            <button id="btnPayment" class="btn btn-success">Thanh toán</button>
+        }
+        else
+        {
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+    </div>
+</div>
+

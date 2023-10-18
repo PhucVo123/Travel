@@ -1,0 +1,107 @@
+﻿@model IEnumerable<WebApplication5.Models.Detail>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.position_detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.facilities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.depart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.transit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.starting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descDetail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.scheduleDetail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.meta_detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hide)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.order_detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datebegin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.namePackage)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.position_detail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.facilities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.depart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.transit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.starting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descDetail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.scheduleDetail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.meta_detail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hide)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_detail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.datebegin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.namePackage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

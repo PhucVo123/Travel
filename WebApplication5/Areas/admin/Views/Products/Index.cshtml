@@ -1,0 +1,50 @@
+﻿@using WebApplication5.Help
+@model WebApplication5.Models.Category
+@{
+    ViewBag.Title = "Danh sách dịch vụ";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container pt-4 px-4">
+    <div class="row">
+        <div class="col-sm-12 col-xl-12 col-md-12">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="bs-example" style="text-align:right; padding-bottom:10px;">
+                    <div class="btn-group">
+                        @Html.DropDownListFor(model => model.id, (SelectList)ViewBag.Category, "---- Tất cả dịch vụ ----", new { @class = "form-control", @id = "Category" })
+
+                    </div>
+                    <div class="btn-group">
+                        @Html.ActionLink(HttpUtility.HtmlDecode("Tạo mới &#43;"), "Create", null, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+                <div id="getProduct"></div>
+            </div>
+        </div>
+    </div>
+</div>
+@section _Footer
+{
+    <script>
+        $(document).ready(function () {
+            function getProduct() {
+                var CategoryId = $('#Category').val();
+                $.ajax({
+                    url: '@Url.Action("getProduct", "Products")',
+                    type: "GET",
+                    data: { id: CategoryId },
+                    success: function (data) {
+                        $("#getProduct").html(data);
+                    },
+                    error: function (data) {
+                        alert("something went wrong.");
+                    }
+                });
+            }
+            getProduct();
+            $("#Category").change(function () {
+                getProduct();
+            })
+        });
+    </script>
+}

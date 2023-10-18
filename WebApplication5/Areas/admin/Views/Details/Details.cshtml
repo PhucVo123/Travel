@@ -1,0 +1,122 @@
+﻿@model WebApplication5.Models.Detail
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Detail</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.position_detail)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.position_detail)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.facilities)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.facilities)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.depart)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.depart)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.transit)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.transit)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.starting)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.starting)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.descDetail)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.descDetail)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.scheduleDetail)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.scheduleDetail)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.meta)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.meta)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.hide)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.hide)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.order)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.order)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.datebegin)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.datebegin)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Product.namePackage)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Product.namePackage)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

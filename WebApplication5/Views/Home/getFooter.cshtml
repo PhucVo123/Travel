@@ -1,0 +1,17 @@
+﻿@model IEnumerable<WebApplication5.Models.Footer>
+
+
+<div class="d-flex flex-column justify-content-start">
+    @foreach (var i in Model)
+    {
+        if (i.nameFooter != "Blog")
+        {
+            <a class="text-white-50 mb-2" href="@i.link" class="nav-item nav-link"><i class="fa fa-angle-right mr-2"></i>@i.nameFooter</a>
+        }
+        else
+        {
+            <a class="text-white-50" href="@i.link" class="nav-item nav-link"><i class="fa fa-angle-right mr-2"></i>@i.nameFooter</a>
+        }
+    }
+</div>
+

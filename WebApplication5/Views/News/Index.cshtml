@@ -1,0 +1,19 @@
+﻿@model WebApplication5.Models.News
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<<!-- Blog Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Tin tức</h6>
+            <h1>Tin tức mới nhất luôn luôn được cập nhật</h1>
+        </div>
+
+        @{ Html.RenderAction("getBlog", "Home"); }
+    </div>
+</div>
+

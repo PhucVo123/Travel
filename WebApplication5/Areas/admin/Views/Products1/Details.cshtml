@@ -1,0 +1,123 @@
+﻿@model WebApplication5.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.namePackage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.namePackage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateStay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateStay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numberOfCustomer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numberOfCustomer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.star)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.star)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.img)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.img)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.meta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.meta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datebegin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datebegin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.nameCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.nameCategory)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

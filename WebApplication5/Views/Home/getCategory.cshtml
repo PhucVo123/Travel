@@ -1,0 +1,16 @@
+﻿@model List<WebApplication5.Models.Category>
+
+@*52000854 - Võ Huy Phúc*@
+
+@foreach (var i in Model)
+{
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-3 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;"><a href="@ViewBag.meta/@i.meta/">@i.nameCategory</a></h6>
+            <h1>Pefect Tour Packages</h1>
+        </div>
+        @Html.Action("getProduct", "Home", new { id = @i.id });
+    </div>
+}
+
+

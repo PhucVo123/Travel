@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WebApplication5.Models.Service>
+
+<div class="row">
+    @foreach (var i in Model)
+    {
+        <div class="col-lg-12 col-md-6 mb-4 mx-auto">
+            <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                @if (i.order == 1)
+                {
+                    <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
+                }
+                @if (i.order == 2)
+                {
+                    <i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
+                }
+                <h5 class="mb-2">@i.nameService</h5>
+                <p class="m-0">@i.descService</p>
+            </div>
+        </div>
+    }
+</div>

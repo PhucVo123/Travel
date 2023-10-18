@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TravelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nameCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="link" Type="nvarchar(max)" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="position_detail" Type="nvarchar" MaxLength="80" />
+          <Property Name="facilities" Type="nvarchar" MaxLength="50" />
+          <Property Name="depart" Type="nvarchar" MaxLength="50" />
+          <Property Name="transit" Type="nvarchar" MaxLength="50" />
+          <Property Name="starting" Type="nvarchar" MaxLength="50" />
+          <Property Name="descDetail" Type="nvarchar(max)" />
+          <Property Name="scheduleDetail" Type="nvarchar(max)" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="meta_detail" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order_detail" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Footer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nameFooter" Type="nvarchar" MaxLength="50" />
+          <Property Name="link" Type="nvarchar(max)" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="NameItem" Type="nvarchar" MaxLength="50" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nameNews" Type="nvarchar(max)" />
+          <Property Name="content" Type="nvarchar(max)" />
+          <Property Name="nameOfAdmin" Type="nvarchar" MaxLength="50" />
+          <Property Name="nameOfLink" Type="nvarchar" MaxLength="50" />
+          <Property Name="linkNews" Type="nvarchar(max)" />
+          <Property Name="imgNews" Type="nvarchar(max)" />
+          <Property Name="dateRelease" Type="nvarchar" MaxLength="30" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_order" Type="int" />
+          <Property Name="id_pro" Type="int" />
+          <Property Name="quanity" Type="int" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ShipName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShipMobile" Type="varchar" MaxLength="10" />
+          <Property Name="ShipAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShipEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="descriptions" Type="nvarchar(max)" />
+          <Property Name="idCus" Type="int" />
+          <Property Name="Statuss" Type="int" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="namePackage" Type="nvarchar(max)" />
+          <Property Name="position" Type="nvarchar" MaxLength="50" />
+          <Property Name="dateStay" Type="nvarchar" MaxLength="20" />
+          <Property Name="numberOfCustomer" Type="nvarchar" MaxLength="20" />
+          <Property Name="star" Type="nvarchar" MaxLength="10" />
+          <Property Name="price" Type="nvarchar" MaxLength="20" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="area" Type="nvarchar" MaxLength="30" />
+          <Property Name="img" Type="nvarchar" MaxLength="50" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nameService" Type="nvarchar" MaxLength="50" />
+          <Property Name="descService" Type="nvarchar(max)" />
+          <Property Name="linkService" Type="nvarchar(max)" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="numberphone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pwd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="confirm_pwd" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Detail__ProductI__19DFD96B">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Detail" Type="Self.Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Detail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__id_or__65370702">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__id_pr__662B2B3B">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="id_pro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__idCus__625A9A57">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="idCus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Categor__7C4F7684">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TravelDBModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detail" EntityType="Self.Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Footer" EntityType="Self.Footer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Detail__ProductI__19DFD96B" Association="Self.FK__Detail__ProductI__19DFD96B">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Detail" EntitySet="Detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__id_or__65370702" Association="Self.FK__OrderDeta__id_or__65370702">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__id_pr__662B2B3B" Association="Self.FK__OrderDeta__id_pr__662B2B3B">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__idCus__625A9A57" Association="Self.FK__Orders__idCus__625A9A57">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Categor__7C4F7684" Association="Self.FK__Product__Categor__7C4F7684">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TravelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Footer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nameFooter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="NameItem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nameService" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descService" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="linkService" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="TravelDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Footers" EntityType="Self.Footer" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="Services" EntityType="Self.Service" />
+          <EntitySet Name="News" EntityType="TravelDBModel.News" />
+          <EntitySet Name="Categories" EntityType="TravelDBModel.Category" />
+          <EntitySet Name="Products" EntityType="TravelDBModel.Product" />
+          <AssociationSet Name="FK__Product__Categor__7C4F7684" Association="TravelDBModel.FK__Product__Categor__7C4F7684">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Details" EntityType="TravelDBModel.Detail" />
+          <AssociationSet Name="FK__Detail__ProductI__19DFD96B" Association="TravelDBModel.FK__Detail__ProductI__19DFD96B">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Detail" EntitySet="Details" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="TravelDBModel.User" />
+          <EntitySet Name="OrderDetails" EntityType="TravelDBModel.OrderDetail" />
+          <EntitySet Name="Orders" EntityType="TravelDBModel.Order" />
+          <AssociationSet Name="FK__OrderDeta__id_or__65370702" Association="TravelDBModel.FK__OrderDeta__id_or__65370702">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__id_pr__662B2B3B" Association="TravelDBModel.FK__OrderDeta__id_pr__662B2B3B">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__idCus__625A9A57" Association="TravelDBModel.FK__Orders__idCus__625A9A57">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nameNews" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nameOfAdmin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nameOfLink" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="linkNews" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imgNews" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dateRelease" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nameCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Products" Relationship="TravelDBModel.FK__Product__Categor__7C4F7684" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="namePackage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dateStay" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="numberOfCustomer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="star" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="area" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Category" Relationship="TravelDBModel.FK__Product__Categor__7C4F7684" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Details" Relationship="TravelDBModel.FK__Detail__ProductI__19DFD96B" FromRole="Product" ToRole="Detail" />
+          <NavigationProperty Name="OrderDetails" Relationship="TravelDBModel.FK__OrderDeta__id_pr__662B2B3B" FromRole="Product" ToRole="OrderDetail" />
+        </EntityType>
+        <Association Name="FK__Product__Categor__7C4F7684">
+          <End Type="TravelDBModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="TravelDBModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="position_detail" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="facilities" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="depart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="transit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="starting" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="scheduleDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="meta_detail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order_detail" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Product" Relationship="TravelDBModel.FK__Detail__ProductI__19DFD96B" FromRole="Detail" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK__Detail__ProductI__19DFD96B">
+          <End Type="TravelDBModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="TravelDBModel.Detail" Role="Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Detail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="numberphone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pwd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="confirm_pwd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orders" Relationship="TravelDBModel.FK__Orders__idCus__625A9A57" FromRole="User" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_order" Type="Int32" />
+          <Property Name="id_pro" Type="Int32" />
+          <Property Name="quanity" Type="Int32" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Order" Relationship="TravelDBModel.FK__OrderDeta__id_or__65370702" FromRole="OrderDetail" ToRole="Order" />
+          <NavigationProperty Name="Product" Relationship="TravelDBModel.FK__OrderDeta__id_pr__662B2B3B" FromRole="OrderDetail" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ShipName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShipMobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ShipAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShipEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idCus" Type="Int32" />
+          <Property Name="Statuss" Type="Int32" />
+          <NavigationProperty Name="OrderDetails" Relationship="TravelDBModel.FK__OrderDeta__id_or__65370702" FromRole="Order" ToRole="OrderDetail" />
+          <NavigationProperty Name="User" Relationship="TravelDBModel.FK__Orders__idCus__625A9A57" FromRole="Order" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__OrderDeta__id_or__65370702">
+          <End Type="TravelDBModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="TravelDBModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__id_pr__662B2B3B">
+          <End Type="TravelDBModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="TravelDBModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="id_pro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__idCus__625A9A57">
+          <End Type="TravelDBModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="TravelDBModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="idCus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TravelDBModelStoreContainer" CdmEntityContainer="TravelDB">
+          <EntitySetMapping Name="Footers">
+            <EntityTypeMapping TypeName="TravelDBModel.Footer">
+              <MappingFragment StoreEntitySet="Footer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nameFooter" ColumnName="nameFooter" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="TravelDBModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NameItem" ColumnName="NameItem" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="TravelDBModel.Service">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nameService" ColumnName="nameService" />
+                <ScalarProperty Name="descService" ColumnName="descService" />
+                <ScalarProperty Name="linkService" ColumnName="linkService" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="TravelDBModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="dateRelease" ColumnName="dateRelease" />
+                <ScalarProperty Name="imgNews" ColumnName="imgNews" />
+                <ScalarProperty Name="linkNews" ColumnName="linkNews" />
+                <ScalarProperty Name="nameOfLink" ColumnName="nameOfLink" />
+                <ScalarProperty Name="nameOfAdmin" ColumnName="nameOfAdmin" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="nameNews" ColumnName="nameNews" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="TravelDBModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="nameCategory" ColumnName="nameCategory" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="TravelDBModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="star" ColumnName="star" />
+                <ScalarProperty Name="numberOfCustomer" ColumnName="numberOfCustomer" />
+                <ScalarProperty Name="dateStay" ColumnName="dateStay" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="namePackage" ColumnName="namePackage" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Details">
+            <EntityTypeMapping TypeName="TravelDBModel.Detail">
+              <MappingFragment StoreEntitySet="Detail">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order_detail" ColumnName="order_detail" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta_detail" ColumnName="meta_detail" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="scheduleDetail" ColumnName="scheduleDetail" />
+                <ScalarProperty Name="descDetail" ColumnName="descDetail" />
+                <ScalarProperty Name="starting" ColumnName="starting" />
+                <ScalarProperty Name="transit" ColumnName="transit" />
+                <ScalarProperty Name="depart" ColumnName="depart" />
+                <ScalarProperty Name="facilities" ColumnName="facilities" />
+                <ScalarProperty Name="position_detail" ColumnName="position_detail" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TravelDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="confirm_pwd" ColumnName="confirm_pwd" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="numberphone" ColumnName="numberphone" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="TravelDBModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="quanity" ColumnName="quanity" />
+                <ScalarProperty Name="id_pro" ColumnName="id_pro" />
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="TravelDBModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Statuss" ColumnName="Statuss" />
+                <ScalarProperty Name="idCus" ColumnName="idCus" />
+                <ScalarProperty Name="descriptions" ColumnName="descriptions" />
+                <ScalarProperty Name="ShipEmail" ColumnName="ShipEmail" />
+                <ScalarProperty Name="ShipAddress" ColumnName="ShipAddress" />
+                <ScalarProperty Name="ShipMobile" ColumnName="ShipMobile" />
+                <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

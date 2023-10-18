@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebApplication5.Models.Menu>
+@using WebApplication5.Help
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row g-4">
+    <div class="col-sm-12 col-xl-12 col-md-12">
+        <div class="bg-light rounded h-100 p-4">
+            <h6 class="mb-4">Basic Table</h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            STT
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Link
+                        </th>
+                        <th>
+                            Meta
+                        </th>
+                        <th>
+                            Hide
+                        </th>
+
+                        <th>
+                            DateBegin
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{var Number = 1; }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.Raw(Number++)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NameItem)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Link)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.meta)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.hide)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.datebegin)
+                            </td>
+                            <td>
+                                @Html.NoEncodeActionLink("<span class='fa fa-wrench'></span>", "Edit", "Edit", "menus", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-secondary" })
+                                @Html.NoEncodeActionLink("<span class='fa fa-search'></span>", "Detail", "Details", "menus", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                                @Html.NoEncodeActionLink("<span class='fa fa-trash'></span>", "Delete", "Delete", "menus", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

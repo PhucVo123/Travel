@@ -1,0 +1,161 @@
+﻿@model WebApplication5.Models.Detail
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa dịch vụ</h2>
+
+<h3>Bạn có chắc chắn xóa dịch vụ này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Tên dịch vụ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.namePackage)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Vị trí")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.position)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ngày ở")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.dateStay)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số lượng khách")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.numberOfCustomer)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số sao")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.star)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Giá tiền")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Khu vực")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.area)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Hình ảnh")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.img)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayName("Hiển thị")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hide)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Vị trí cụ thể")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.position_detail)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tiện ích")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.facilities)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Khởi hành")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.depart)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Vận chuyển")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.transit)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ngày khỏi hành")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.starting)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Mô tả chi tiết")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descDetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Lịch trình")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.scheduleDetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Vị trí")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order_detail)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,66 @@
+﻿@model List<WebApplication5.Models.CartItem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter
+{
+    <script src="~/Content/js/cartController.js"></script>
+}
+<div class="content mt-5">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <td>Mã Tour</td>
+                        <td>Tên Tour</td>
+                        <td>Ảnh Tour</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.product.id</td>
+                            <td>@item.product.namePackage</td>
+                            <td><img src="~/Images/@item.product.img" width="100" /></td>
+                            <td>@item.quantity</td>
+                            <td>@item.product.price</td>
+                            <td>@item.quantity</td>
+                          
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+    <div class="payment mt-3">
+        @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label>Người đặt hàng</label>
+                <input type="text" name="shipName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Số điện thoại</label>
+                <input type="text" name="shipPhone" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Địa chỉ</label>
+                <input type="text" name="shipAddress" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="shipEmail" class="form-control" />
+            </div>
+            <button class="btn btn-success" type="submit">Đặt hàng</button>
+        }
+    </div>
+</div>

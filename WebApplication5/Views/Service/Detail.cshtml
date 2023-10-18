@@ -1,0 +1,194 @@
+﻿@model WebApplication5.Models.Detail
+@Styles.Render("~/Content/css/detail.css")
+@{
+    ViewBag.Title = "Dịch vụ";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="tittle_detail_tour mt-5">
+        <h1>@Model.Product.namePackage</h1>
+        <h3 class="pos">@Model.position_detail</h3>
+    </div>
+    <div class="border-top mt-4 pt-4">
+        <div class="d-flex justify-content-between">
+            <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>@Model.Product.star/5 trong 56 ĐÁNH GIÁ</h6>
+        </div>
+    </div>
+    <div class="row mt-4">
+        @if (Model.Product.Category.meta == "khach-san-cho-o")
+        {
+            <div class="col-md-7">
+                <div class="img">
+                    <img class="img-fluid" src="~/Images/@Model.Product.img" alt="" />
+                </div>
+                <div class="boxTour" id="flag2">
+                    <div class="title"><span class="fa-info-circle">Miêu tả chi tiết</span></div>
+                    <div class="content">
+                        <div class="listDay">
+                            <div class="day active">
+                                <div class="the-content desc">
+                                    <p></p><div style="text-align: justify;" id="mycontent">
+                                        @if (Model.Product.Category.meta == "khach-san-cho-o")
+                                        {
+                                            @Model.descDetail
+                                        }
+                                        else
+                                        {
+                                            @Model.scheduleDetail
+                                        }
+                                    </div><p></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="boxDesign1">
+                    <div class="name">@Model.Product.namePackage</div>
+
+                    <div class="attr">
+                        <ul style="list-style: none;">
+                            <li>
+                                <div class="at">Mã khách sạn: </div>
+                                <div class="as">@Model.Product.id &nbsp;</div>
+                            </li>
+                            <li>
+                                <div class="at">Số sao: </div>
+                                <div class="as"><i class="fa fa-star text-primary mr-2"></i>@Model.Product.star</div>
+                            </li>
+                            <li>
+                                <div class="at">Tiện ích: </div>
+                                <div class="as">
+                                    @Model.facilities &nbsp;
+                                </div>
+                            </li>
+                            <li>
+                                <div class="at">Số người:</div>
+                                <div class="as">
+                                    @Model.Product.numberOfCustomer &nbsp;
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="boxPrice">
+                    <div class="price">
+                        <div class="txt">Giá từ:</div>
+                        <div class="red" id="giactt">@Model.Product.price</div>
+                    </div>
+                    <div class="bot">
+                        <div class="form-group">
+                            <input type="text" name="dDate" id="dDate" class="form-control bg-white dDate date-readonly dropdown-toggle" value="@Model.Product.position" readonly="">
+                        </div>
+                        <div class="btn-booking dt">
+                            <input type="hidden" name="tourid" id="tourid" value="16349">
+                            <input type="hidden" name="con" id="con" value="9">
+                            <input type="hidden" name="hasvisa" id="hasvisa" value="">
+                            <a class="btn btn-secondary" href="/them-gio-hang?proID=@Model.ProductID&quantity=1" role="button">Đặt Tour</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+
+            <div class="col-md-7">
+                <div class="img">
+                    <img class="img-fluid" src="~/Images/@Model.Product.img" alt="" />
+                </div>
+                <div class="boxTour" id="flag2">
+                    <div class="title"><span class="fa-info-circle">Miêu tả chi tiết</span></div>
+                    <div class="content">
+                        <div class="listDay">
+                            <div class="day active">
+                                <div class="the-content desc">
+                                    <p></p><div style="text-align: justify;" id="mycontent">
+                                        @if (Model.Product.Category.meta == "khach-san-cho-o")
+                                        {
+                                            @Model.descDetail
+                                        }
+                                        else
+                                        {
+                                            @Model.scheduleDetail
+                                        }
+                                    </div><p></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            var night = Int16.Parse(Model.Product.dateStay.Substring(0, 1)) - 1;
+
+            <div class="col-md-5">
+                <div class="boxDesign1">
+                    <div class="name">@Model.Product.namePackage</div>
+                    <div class="attr">
+                        <ul style="list-style: none;">
+                            <li>
+                                <div class="at">Mã tour: </div>
+                                <div class="as">@Model.id &nbsp;</div>
+                            </li>
+                            <li>
+                                <div class="at">Thời gian: </div>
+                                <div class="as">@Model.Product.dateStay @night đêm</div>
+                            </li>
+                            <li>
+                                <div class="at">Khởi hành: </div>
+                                <div class="as">@Model.depart</div>
+                            </li>
+                            <li>
+                                <div class="at">Vận chuyển: </div>
+                                <div class="as">
+                                    @Model.transit &nbsp;
+                                </div>
+                            </li>
+                            <li>
+                                <div class="at">Số người:</div>
+                                <div class="as">
+                                    @Model.Product.numberOfCustomer &nbsp;
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="boxPrice">
+                    <div class="price">
+                        <div class="txt">Giá từ:</div>
+                        <div class="red" id="giactt">@Model.Product.price</div>
+                    </div>
+                    <div class="bot">
+                        <div class="form-group">
+                            <input type="text" name="dDate" id="dDate" class="form-control bg-white dDate date-readonly dropdown-toggle" value="@Model.depart" readonly="">
+                        </div>
+                        <div class="btn-booking dt">
+                            <input type="hidden" name="tourid" id="tourid" value="16349">
+                            <input type="hidden" name="con" id="con" value="9">
+                            <input type="hidden" name="hasvisa" id="hasvisa" value="">
+                            <a class="btn btn-primary" href="/them-gio-hang?proID=@Model.ProductID&quantity=1" role="button">Đặt Tour</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+
+</div>
+<script>
+    $(document).ready(function () {
+        $('#mycontent').each(function () {
+            var $this = $(this);
+            var t = $this.text();
+            $this.html(t.replace('&lt', '<').replace('&gt', '>'));
+        });
+        $("img").addClass("img-fluid")
+    })
+
+</script>
+

@@ -1,0 +1,51 @@
+﻿@model List<WebApplication5.Models.News>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row pb-3">
+            @foreach (var i in Model)
+            {
+                <div class="col-md-6 mb-4 pb-2">
+                    <div class="blog-item">
+                        <div class="position-relative">
+                            <a href="/@i.meta/@i.id"><img class="img-fluid w-100" src="~/Images/@i.imgNews" alt="" style="height: 240px; width:auto"s></a>
+                            <div class="blog-date">
+                                <h6 class="font-weight-bold mb-n1">01</h6>
+                                <small class="text-white text-uppercase">Jan</small>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4">
+                            <div class="d-flex mb-2">
+                                <a class="text-primary text-uppercase text-decoration-none" href="">@i.nameOfAdmin</a>
+                                <span class="text-primary px-2">|</span>
+                                <a class="text-primary text-uppercase text-decoration-none" href="">@i.nameOfLink</a>
+                            </div>
+                            <a class="h5 m-0 text-decoration-none" href="" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1;  line-clamp: 1; -webkit-box-orient: vertical; ">@i.nameNews</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="col-12">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-lg justify-content-center bg-white mb-0" style="padding: 30px;">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
